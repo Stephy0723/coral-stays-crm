@@ -1,25 +1,21 @@
-# Coral Stays · Web y CRM
+# BRASA Atelier
 
-Web de alojamientos en Punta Cana con catálogo, galerías, perfiles de vendedores, mapas, ES/DOP y EN/USD, tema claro/oscuro y CRM de propiedades, consultas, clientes, reservas y disponibilidad.
+Web de restaurante: navegación inferior por vistas independientes, carta con buscador y filtros, precios en RD$, ambientes y selección de mesa, solicitudes de reserva, carrito de pedidos, tema claro/oscuro y español/inglés.
 
-## Desarrollo
+## Ejecutar
 
-Requiere Node.js >=22.13 y pnpm 11.25.
+Sitio estático sin instalación. Desde esta carpeta:
 
 ```sh
-pnpm install
-pnpm dev
-pnpm build
+python3 -m http.server 8000
 ```
 
-El proyecto utiliza Vinext, Cloudflare D1 (binding `DB`) y R2 (`BUCKET`). El esquema y las migraciones están en `db/` y `drizzle/`. El despliegue original usa Sites y autenticación de ChatGPT; fuera de ese entorno hay que configurar bindings, aplicar migraciones y adaptar la autenticación. El acceso inicial del administrador se configura en `app/api/[...path]/route.ts`.
+Abre http://localhost:8000. Se puede alojar en cualquier hosting estático.
 
 ## Estado
 
-Las consultas y solicitudes de reserva se guardan en la base de datos. Los pagos son registros manuales: todavía no hay pasarela de cobro real. El catálogo inicial contiene propiedades de ejemplo. Los datos de producción (clientes, reservas y archivos subidos al CRM) no están incluidos en este repositorio.
+Concepto de restaurante: fotografías de referencia, carta, precios y capacidades ilustrativos. El pedido y la reserva preparan mensajes para compartir: no se envían automáticamente, no cobran ni confirman disponibilidad. El carrito y las preferencias se guardan en el navegador. No incluye datos de producción ni secretos.
 
-## Recursos
+Fotos: Unsplash. Versión publicada: https://brasa-restaurante.steliantsoft.chatgpt.site
 
-Fotos de Unsplash. Vídeo de playa: Michal Marek / Pexels, video 3223480. Recursos locales en `public/assets/`.
-
-Este respaldo incluye la corrección del bloqueo de carga del CRM.
+Esta rama contiene únicamente BRASA Atelier. Coral Stays permanece en main.
